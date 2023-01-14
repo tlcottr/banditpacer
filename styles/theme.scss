@@ -1,0 +1,10 @@
+:root {
+  --background: #000000;
+  --text: #ffffff;
+  --dimText: #7f7c81;
+}
+
+[data-theme="light"] {
+  --background: #ffffff;
+  --text: #000000;
+}
