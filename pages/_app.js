@@ -8,7 +8,7 @@ export default function App({ Component, pageProps }) {
   return (
     <ThemeProvider>
       <Layout>
-        <Component {...pageProps} />
+        <Component forcedTheme="dark" {...pageProps} />
       </Layout>
     </ThemeProvider>
   );
