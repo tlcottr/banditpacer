@@ -5,7 +5,13 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        GroteskRegular: ["grotesk-regular", "decorative"],
+        GroteskMedium: ["grotesk-medium", "decorative"],
+        GroteskBold: ["grotesk-bold", "decorative"],
+      },
+    },
   },
   plugins: [],
 };
