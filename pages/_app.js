@@ -6,9 +6,9 @@ import Layout from "@/components/Layout";
 
 export default function App({ Component, pageProps }) {
   return (
-    <ThemeProvider>
+    <ThemeProvider forcedTheme="dark">
       <Layout>
-        <Component forcedTheme="dark" {...pageProps} />
+        <Component {...pageProps} />
       </Layout>
     </ThemeProvider>
   );
