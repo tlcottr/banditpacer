@@ -182,7 +182,7 @@ function Prompt() {
 
   return (
     <>
-      <div className="text-[#7f7c81] text-[44px] md:text-6xl font-GroteskRegular max-w-sm md:max-w-6xl my-9 tracking-[0.9 px]">
+      <div className="text-[#7f7c81] text-5xl md:text-6xl font-GroteskRegular max-w-sm md:max-w-6xl my-9 tracking-[0.9 px] whitespace-normal">
         <h1 className="leading-[56px] md:leading-tight">
           I want to run a{" "}
           <span
