@@ -142,6 +142,16 @@ function Prompt() {
   const InputTray = ({ selected }) => {
     return (
       <div className="fixed bottom-0 left-0 w-full bg-white p-5 z-1">
+        <span>
+          {selected === "distance" && (
+            <h2 className="text-md text-[#7f7c81] text-center">DISTANCE</h2>
+          )}
+        </span>
+        <span>
+          {selected === "time" && (
+            <h2 className="text-md text-[#7f7c81] text-center">FINISH TIME</h2>
+          )}
+        </span>
         {selected === "distance" && <InputsDistances />}
         {selected === "time" && <InputsTime />}
       </div>
@@ -184,8 +194,8 @@ function Prompt() {
 
   return (
     <>
-      <div className="text-[#7f7c81] text-5xl md:text-6xl font-GroteskRegular md:max-w-6xl my-9 tracking-[0.9 px] whitespace-normal w-full">
-        <h1 className="leading-[56px] md:leading-tight">
+      <div className="text-[#7f7c81] text-[46px] md:text-6xl font-GroteskRegular md:max-w-6xl my-9 tracking-[0.9 px] w-full">
+        <h1 className="leading-[56px] md:leading-tight whitespace-normal">
           I want to run a{" "}
           <span
             className={styles.underline}
@@ -199,7 +209,7 @@ function Prompt() {
             {currentTime}
             <DownArrow />
           </span>
-          your pace needs to be{" "} 
+          your pace needs to be{" "}
           <span className={styles.underline}>{pace}/mi</span>.
         </h1>
       </div>
