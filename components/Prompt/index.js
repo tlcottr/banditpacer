@@ -197,7 +197,7 @@ function Prompt() {
             {currentTime}
             <DownArrow />
           </span>
-          your pace needs to be{" "}
+          {" "}your pace needs to be{" "}
           <span className={styles.underline}>{pace}/mi</span>.
         </h1>
       </div>
