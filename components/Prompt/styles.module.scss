@@ -12,6 +12,9 @@
   cursor: pointer;
   white-space: nowrap;
 }
+.noBreak {
+  white-space: nowrap;
+}
 
 .slide-in {
   transform: translateY(0%);
