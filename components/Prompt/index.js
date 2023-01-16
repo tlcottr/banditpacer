@@ -192,7 +192,7 @@ function Prompt() {
             {currentDistance}
             <DownArrow />
           </span>
-          in
+          in{""}
           <span className={styles.underline} onClick={() => handleTimeClick()}>
             {currentTime}
             <DownArrow />
