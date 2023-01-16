@@ -87,6 +87,8 @@ function Prompt() {
       e.preventDefault();
       if (validateTime(time)) {
         setCurrentTime(time);
+        setTime(time);
+        setPace(getPace(distance, time));
         toggleHandler();
       } else {
         setError("Invalid time format. Please use the format HH:MM:SS");
