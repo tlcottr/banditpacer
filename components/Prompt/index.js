@@ -204,8 +204,6 @@ function Prompt() {
             {currentDistance}
             <DownArrow />
           </span>
-        </h1>
-        <h1 className="leading-[56px] md:leading-tight whitespace-normal">
           in{" "}
           <span className={styles.underline} onClick={() => handleTimeClick()}>
             {currentTime}
