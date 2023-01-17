@@ -48,21 +48,33 @@ function Prompt() {
 
     return (
       <ul className="font-GroteskRegular text-3xl text-black py-8">
-        <div className="flex flex-row items-center justify-between py-1 cursor-pointer">
-          <li onClick={() => handleClick("5K")}>5K</li>
-          <li className="text-[#7f7c81]">3.1</li>
+        <div
+          className="flex flex-row items-center justify-between py-1 cursor-pointer hover:bg-gray-100 focus:bg-gray-100"
+          onClick={() => handleClick("5K")}
+        >
+          <li className="pl-2">5K</li>
+          <li className="text-[#7f7c81] pr-2">3.1</li>
         </div>
-        <div className="flex flex-row items-center justify-between py-1 cursor-pointer">
-          <li onClick={() => handleClick("10K")}>10K</li>
-          <li className="text-[#7f7c81]">6.2</li>
+        <div
+          className="flex flex-row items-center justify-between py-1 cursor-pointer hover:bg-gray-100 focus:bg-gray-100"
+          onClick={() => handleClick("10K")}
+        >
+          <li className="pl-2">10K</li>
+          <li className="text-[#7f7c81] pr-2">6.2</li>
         </div>
-        <div className="flex flex-row items-center justify-between py-1 cursor-pointer">
-          <li onClick={() => handleClick("Half Marathon")}>Half Marathon</li>
-          <li className="text-[#7f7c81]">13.1</li>
+        <div
+          className="flex flex-row items-center justify-between py-1 cursor-pointer hover:bg-gray-100 focus:bg-gray-100"
+          onClick={() => handleClick("Half Marathon")}
+        >
+          <li className="pl-2">Half Marathon</li>
+          <li className="text-[#7f7c81] pr-2">13.1</li>
         </div>
-        <div className="flex flex-row items-center justify-between py-1 cursor-pointer">
-          <li onClick={() => handleClick("Marathon")}>Marathon</li>
-          <li className="text-[#7f7c81]">26.2</li>
+        <div
+          className="flex flex-row items-center justify-between py-1 cursor-pointer hover:bg-gray-100 focus:bg-gray-100"
+          onClick={() => handleClick("Marathon")}
+        >
+          <li className="pl-2">Marathon</li>
+          <li className="text-[#7f7c81] pr-2">26.2</li>
         </div>
       </ul>
     );
@@ -122,17 +134,26 @@ function Prompt() {
             </button>
           </div>
           {error && <p className="text-red-500">{error}</p>}
-          <div className="flex flex-row items-center justify-between py-1 cursor-pointer">
-            <li onClick={() => handleClick("03:00:00")}>Boston</li>
-            <li className="text-[#7f7c81]">03:00:00</li>
+          <div
+            className="flex flex-row items-center justify-between py-1 cursor-pointer hover:bg-gray-100 focus:bg-gray-100"
+            onClick={() => handleClick("03:00:00")}
+          >
+            <li className="pl-2">Boston</li>
+            <li className="text-[#7f7c81] pr-2">03:00:00</li>
           </div>
-          <div className="flex flex-row items-center justify-between py-1 cursor-pointer">
-            <li onClick={() => handleClick("02:53:00")}>New York</li>
-            <li className="text-[#7f7c81]">02:53:00</li>
+          <div
+            className="flex flex-row items-center justify-between py-1 cursor-pointer hover:bg-gray-100 focus:bg-gray-100"
+            onClick={() => handleClick("02:53:00")}
+          >
+            <li className="pl-2">New York</li>
+            <li className="text-[#7f7c81] pr-2">02:53:00</li>
           </div>
-          <div className="flex flex-row items-center justify-between py-1 cursor-pointer">
-            <li onClick={() => handleClick("02:54:00")}>Berlin</li>
-            <li className="text-[#7f7c81]">02:54:00</li>
+          <div
+            className="flex flex-row items-center justify-between py-1 cursor-pointer hover:bg-gray-100 focus:bg-gray-100"
+            onClick={() => handleClick("02:54:00")}
+          >
+            <li className="pl-2">Berlin</li>
+            <li className="text-[#7f7c81] pr-2">02:54:00</li>
           </div>
         </ul>
       </form>
@@ -141,7 +162,7 @@ function Prompt() {
 
   const InputTray = ({ selected }) => {
     return (
-      <div className="fixed bottom-0 left-0 w-full bg-white p-5 z-1">
+      <div className="fixed bottom-0 left-0 w-full bg-white p-5 z-1 rounded-xl">
         <span>
           {selected === "distance" && (
             <h2 className="text-md text-[#7f7c81] text-center">DISTANCE</h2>
