@@ -4,11 +4,9 @@ const Paces = () => {
   const [pacesData, setPacesData] = useState([]);
 
   useEffect(() => {
-    if (typeof window !== "undefined" && window.localStorage) {
-      const savedCalculations =
-        JSON.parse(localStorage.getItem("calculation")) || [];
-      setPacesData(savedCalculations);
-    }
+    const savedCalculations =
+      JSON.parse(localStorage.getItem("calculation")) || [];
+    setPacesData(savedCalculations);
   }, []);
 
   return (
@@ -21,11 +19,11 @@ const Paces = () => {
             <th>Time</th>
             <th>Pace</th>
           </tr>
-          {pacesData.map((pace, index) => (
-            <tr key={index} className="text-left text-lg text-white">
-              <td>{pace.distance}</td>
-              <td>{pace.time}</td>
-              <td>{pace.pace}</td>
+          {pacesData.map((dataSet, index) => (
+            <tr key={index} className="text-left text-2xl text-white border-b border-solid border-[#676769]">
+              <td>{dataSet.distance}</td>
+              <td>{dataSet.time}</td>
+              <td>{dataSet.pace}</td>
             </tr>
           ))}
         </tbody>

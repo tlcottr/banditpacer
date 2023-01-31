@@ -179,11 +179,12 @@ function Prompt() {
 
   const SaveCalculation = ({ distance, time, pace }) => {
     const handleSave = () => {
-      let calculations = JSON.parse(localStorage.getItem("calculations")) || [];
-      const data = [{ distance, time, pace }];
-      calculations.push(data);
-      localStorage.setItem("calculations", JSON.stringify(calculations));
-      console.log(distance, time, pace);
+      const id = Date.now();
+      const data = { id, distance, time, pace };
+      let calculation = JSON.parse(localStorage.getItem("calculation")) || [];
+      calculation.push(data);
+      localStorage.setItem("calculation", JSON.stringify(calculation));
+      console.log({ id, distance, time, pace });
     };
 
     return (
