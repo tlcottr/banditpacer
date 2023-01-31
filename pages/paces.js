@@ -4,10 +4,12 @@ const Paces = () => {
   const [pacesData, setPacesData] = useState([]);
 
   useEffect(() => {
-    const savedCalculations =
-      JSON.parse(localStorage.getItem("calculation")) || [];
-    setPacesData(savedCalculations);
-  }, [localStorage.getItem("calculation")]);
+    if (typeof window !== "undefined" && window.localStorage) {
+      const savedCalculations =
+        JSON.parse(localStorage.getItem("calculation")) || [];
+      setPacesData(savedCalculations);
+    }
+  }, []);
 
   return (
     <div className="font-GroteskRegular">
