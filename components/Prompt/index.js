@@ -4,23 +4,22 @@ import DownArrow from "../DownArrow";
 import { useState, useEffect } from "react";
 
 const getPace = (distance, time) => {
-  let miles;
-  if (distance === "Half Marathon") {
-    miles = 13.1;
-  } else if (distance === "Marathon") {
-    miles = 26.2;
-  } else if (distance === "10K") {
-    miles = 6.2;
-  } else if (distance === "5K") {
-    miles = 3.1;
-  }
+  const distances = [
+    { name: "5K", miles: 3.1 },
+    { name: "10K", miles: 6.2 },
+    { name: "Half Marathon", miles: 13.1 },
+    { name: "Marathon", miles: 26.2 },
+  ];
+
+  const selectedDistance = distances.find((d) => d.name === distance);
+  if (!selectedDistance) return "Pace";
 
   // convert time from string to seconds
   const timeInSeconds = time.split(":").reduce((acc, time) => 60 * acc + +time);
   // convert seconds to minutes
   const timeInMinutes = timeInSeconds / 60;
   // divide time by miles to get pace in minutes per mile
-  let pace = timeInMinutes / miles;
+  let pace = timeInMinutes / selectedDistance.miles;
   if (pace > 0) {
     const paceInMinutes = Math.floor(pace);
     const paceInSeconds = Math.round((pace - paceInMinutes) * 60);
@@ -38,6 +37,13 @@ function Prompt() {
   const [time, setTime] = useState("00:00:00");
   const [pace, setPace] = useState(0);
 
+  const distances = [
+    { name: "5K", miles: 3.1 },
+    { name: "10K", miles: 6.2 },
+    { name: "Half Marathon", miles: 13.1 },
+    { name: "Marathon", miles: 26.2 },
+  ];
+
   const InputsDistances = () => {
     const handleClick = (distance) => {
       setDistance(distance);
@@ -48,34 +54,19 @@ function Prompt() {
 
     return (
       <ul className="font-GroteskRegular text-3xl text-black py-8">
-        <div
-          className="flex flex-row items-center justify-between py-1 cursor-pointer hover:bg-gray-100 focus:bg-gray-100"
-          onClick={() => handleClick("5K")}
-        >
-          <li className="pl-2">5K</li>
-          <li className="text-[#7f7c81] pr-2">3.1</li>
-        </div>
-        <div
-          className="flex flex-row items-center justify-between py-1 cursor-pointer hover:bg-gray-100 focus:bg-gray-100"
-          onClick={() => handleClick("10K")}
-        >
-          <li className="pl-2">10K</li>
-          <li className="text-[#7f7c81] pr-2">6.2</li>
-        </div>
-        <div
-          className="flex flex-row items-center justify-between py-1 cursor-pointer hover:bg-gray-100 focus:bg-gray-100"
-          onClick={() => handleClick("Half Marathon")}
-        >
-          <li className="pl-2">Half Marathon</li>
-          <li className="text-[#7f7c81] pr-2">13.1</li>
-        </div>
-        <div
-          className="flex flex-row items-center justify-between py-1 cursor-pointer hover:bg-gray-100 focus:bg-gray-100"
-          onClick={() => handleClick("Marathon")}
-        >
-          <li className="pl-2">Marathon</li>
-          <li className="text-[#7f7c81] pr-2">26.2</li>
-        </div>
+        <h2 className="text-sm text-[#7f7c81] text-left pl-2 py-2">
+          Popular Distances
+        </h2>
+        {distances.map((d) => (
+          <div
+            key={d.name}
+            className="flex flex-row items-center justify-between py-1 cursor-pointer hover:bg-gray-100 focus:bg-gray-100"
+            onClick={() => handleClick(d.name)}
+          >
+            <li className="pl-2">{d.name}</li>
+            <li className="text-[#7f7c81] pr-2">{d.miles}</li>
+          </div>
+        ))}
       </ul>
     );
   };
@@ -83,6 +74,10 @@ function Prompt() {
   const InputsTime = () => {
     const [time, setTime] = useState("00:00:00");
     const [error, setError] = useState("");
+
+    useEffect(() => {
+      setPace(getPace(distance, time));
+    }, [distance, time]);
 
     const handleClick = (time) => {
       setTime(time);
@@ -134,6 +129,9 @@ function Prompt() {
             </button>
           </div>
           {error && <p className="text-red-500">{error}</p>}
+          <h2 className="text-sm text-[#7f7c81] text-left pl-2 py-2">
+            Qualifying Times
+          </h2>
           <div
             className="flex flex-row items-center justify-between py-1 cursor-pointer hover:bg-gray-100 focus:bg-gray-100"
             onClick={() => handleClick("03:00:00")}
@@ -176,6 +174,25 @@ function Prompt() {
         {selected === "distance" && <InputsDistances />}
         {selected === "time" && <InputsTime />}
       </div>
+    );
+  };
+
+  const SaveCalculation = ({ distance, time, pace }) => {
+    const handleSave = () => {
+      let calculations = JSON.parse(localStorage.getItem("calculations")) || [];
+      const data = [{ distance, time, pace }];
+      calculations.push(data);
+      localStorage.setItem("calculations", JSON.stringify(calculations));
+      console.log(distance, time, pace);
+    };
+
+    return (
+      <button
+        onClick={handleSave}
+        className="bg-white rounded-full px-8 py-2 text-black text-lg my-3"
+      >
+        Save Pace
+      </button>
     );
   };
 
@@ -233,6 +250,9 @@ function Prompt() {
           your pace needs to be{" "}
           <span className={styles.underline}>{pace}/mi</span>.
         </h1>
+        <div className="fixed bottom-3 left-3 hover:opacity-75">
+          <SaveCalculation distance={distance} time={time} pace={pace} />
+        </div>
       </div>
       {open && <Obscurer onClick={toggleHandler} />}
       {open && <InputTray selected={selected} />}

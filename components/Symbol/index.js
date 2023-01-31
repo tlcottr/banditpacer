@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./styles.module.scss";
+import Link from "next/link";
 
 const Icon = () => {
   return (
@@ -16,7 +17,11 @@ const Icon = () => {
 };
 
 const Symbol = () => {
-  return <Icon />;
+  return (
+    <Link href="/">
+      <Icon />
+    </Link>
+  );
 };
 
 export default Symbol;

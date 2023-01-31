@@ -1,3 +1,9 @@
 .logo {
   fill: var(--text);
+  cursor: pointer;
+  opacity: 100%;
+}
+
+.logo:hover {
+  opacity: 50%;
 }
