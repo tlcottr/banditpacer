@@ -17,7 +17,7 @@ export default function Home() {
     return (
       <div className="fixed bottom-0 right=0 left-0 w-full p-5 pt-8 bg-white h-auto z-[1000]">
         <div className="flex flex-col justify-between h-full">
-          <div className="flex flex-row space-between items-center border border-solid border-black rounded-xl w-full mb-8 relative">
+          <div className="flex flex-row justify-between items-center border border-solid border-black rounded-xl w-full mb-8 relative">
             <input
               className="px-3 py-3 uppercase font-GroteskRegular text-2xl focus:border-black focus:ring-0 bg-transparent rounded-xl w-full text-black"
               placeholder="Enter Distance"
@@ -73,7 +73,7 @@ export default function Home() {
           </div>
           <div className="py-6 w-full">
             <div className="pt-3 border-t border-solid border-black">
-              <button className="bg-[#C97900] w-full rounded-lg mt-2 px-3 py-3 uppercase font-GroteskRegular text-3xl bg-black focus:border-white focus:ring-0">
+              <button className="bg-[#C97900] w-full rounded-lg mt-2 px-3 py-3 uppercase font-GroteskRegular text-3xl focus:border-white focus:ring-0">
                 <span className="opacity-50">Set Distance</span>
               </button>
             </div>
@@ -141,7 +141,7 @@ export default function Home() {
       </div>
       <div className="px-3 py-6 w-full fixed bottom-0 right-0 left-0">
         <div className="pt-3 border-t border-solid border-white">
-          <button className="bg-[#C97900] w-full rounded-lg mt-2 px-3 py-3 uppercase font-GroteskRegular text-3xl bg-black focus:border-white focus:ring-0">
+          <button className="bg-[#C97900] w-full rounded-lg mt-2 px-3 py-3 uppercase font-GroteskRegular text-3xl focus:border-white focus:ring-0">
             <span className="opacity-50">Pace Me</span>
           </button>
         </div>
