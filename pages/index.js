@@ -18,7 +18,7 @@ export default function Home() {
             placeholder="Enter Distance"
             input
             type="number"
-            pattern="\d*"
+            inputmode="decimal"
           ></input>
           <UnitToggle />
         </div>
