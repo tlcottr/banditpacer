@@ -1,9 +1,11 @@
 import Prompt from "@/components/Prompt";
 import UnitToggle from "@/components/UnitToggle";
-import { useState } from "react";
+import { ModeToggleContext } from "@/components/ModeToggleProvider";
+import { useState, useContext } from "react";
 
 export default function Home() {
   const [open, setOpen] = useState(false);
+  const { selected, setSelected } = useContext(ModeToggleContext);
 
   const distanceHandler = () => {
     setOpen(!open);
@@ -55,15 +57,27 @@ export default function Home() {
             </button>
           </div>
 
-          <div className="flex flex-row space-between items-center border border-solid borer-white rounded-xl w-full mb-2 relative">
-            <input
-              className="px-3 py-3 uppercase font-GroteskRegular text-2xl focus:border-white focus:ring-0 bg-transparent rounded-xl w-full"
-              placeholder="Finish Time"
-            ></input>
-            <button className="uppercase text-xl text-white absolute right-[.1em] z-10 px-3 py-3 rounded-lg">
-              Set
-            </button>
-          </div>
+          {selected === "TIME" ? (
+            <div className="flex flex-row space-between items-center border border-solid borer-white rounded-xl w-full mb-2 relative">
+              <input
+                className="px-3 py-3 uppercase font-GroteskRegular text-2xl focus:border-white focus:ring-0 bg-transparent rounded-xl w-full"
+                placeholder="Finish Time"
+              ></input>
+              <button className="uppercase text-xl text-white absolute right-[.1em] z-10 px-3 py-3 rounded-lg">
+                Set
+              </button>
+            </div>
+          ) : (
+            <div className="flex flex-row space-between items-center border border-solid borer-white rounded-xl w-full mb-2 relative">
+              <input
+                className="px-3 py-3 uppercase font-GroteskRegular text-2xl focus:border-white focus:ring-0 bg-transparent rounded-xl w-full"
+                placeholder="Pace"
+              ></input>
+              <button className="uppercase text-xl text-white absolute right-[.1em] z-10 px-3 py-3 rounded-lg">
+                Set
+              </button>
+            </div>
+          )}
         </div>
       </div>
       <div className="px-3 py-6 w-full fixed bottom-0 right-0 left-0">
