@@ -3,7 +3,7 @@ import Header from "../Header";
 
 const Layout = ({ children }) => {
   return (
-    <div className="p-5">
+    <div className="p-5 overflow-hidden">
       <Header />
       <main className="flex flex-col justify-between">{children}</main>
     </div>
