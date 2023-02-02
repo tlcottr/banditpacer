@@ -16,7 +16,7 @@ export default function Home() {
           placeholder="Finish Time"
         ></input>
       </div>
-      <div className="my-6 px-4 fixed bottom-0 left-0 right-0 w-full">
+      <div className="my-6 px-4 right-0 w-full">
         <div className="pt-3 border-t border-solid border-white">
           <button className="bg-[#C97900] w-full rounded-lg mt-2 px-3 py-3 uppercase font-GroteskRegular text-4xl bg-black focus:border-white focus:ring-0">
             <span className="opacity-50">Pace Me</span>
