@@ -23,10 +23,7 @@ export default function Home() {
     return (
       <div className="fixed bottom-0 right=0 left-0 w-full p-5 pt-8 bg-white h-auto z-[1000]">
         <div className="flex flex-col justify-between h-full">
-          <div
-            className="flex flex-row justify-between items-center border border-solid border-black rounded-xl w-full mb-8 relative"
-            onFocus={() => styleHandler()}
-          >
+          <div className="flex flex-row justify-between items-center border border-solid border-black rounded-xl w-full mb-8 relative">
             <input
               className="px-3 py-3 uppercase font-GroteskRegular text-2xl focus:border-black focus:ring-0 bg-transparent rounded-xl w-full text-black"
               placeholder="Enter Distance"
