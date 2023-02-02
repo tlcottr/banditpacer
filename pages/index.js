@@ -70,7 +70,7 @@ export default function Home() {
             </li>
           </ul>
         </div>
-        <div className="px-3 py-6 w-full fixed bottom-0 right-0 left-0">
+        <div className="py-6 w-full">
           <div className="pt-3 border-t border-solid border-black">
             <button className="bg-[#C97900] w-full rounded-lg mt-2 px-3 py-3 uppercase font-GroteskRegular text-3xl bg-black focus:border-white focus:ring-0">
               <span className="opacity-50">Set Distance</span>
