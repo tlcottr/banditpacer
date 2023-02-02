@@ -58,7 +58,7 @@ export default function Home() {
                 {selected === "MI" ? (
                   <li className="text-[#7F7C81]">13.1</li>
                 ) : (
-                  <li className="text-[#7F7C81]">21.08241</li>
+                  <li className="text-[#7F7C81]">21.08</li>
                 )}
               </li>
               <li className="flex flex-row items-center justify-between w-full py-2">
