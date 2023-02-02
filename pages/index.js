@@ -96,7 +96,7 @@ export default function Home() {
     <>
       <div className="h-full">
         <div className="py-8 font-GroteskMedium text-5xl">
-          {selected === "TIME" ? (
+          {selected === "PACE" ? (
             <div>LET’S PACE IT OUT.</div>
           ) : (
             <div>TIME TO FINISH STRONG.</div>
