@@ -30,7 +30,7 @@ export default function Home() {
               input
               type="number"
               inputmode="decimal"
-              onFocus={() => styleHandler()}
+              onClick={() => styleHandler()}
             ></input>
             <UnitToggle />
           </div>
