@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
-import { UnitToggleContext } from "components/UnitToggleProvider";
+import { ModeToggleContext } from "@/components/ModeToggleProvider";
 import styles from "./styles.module.scss";
 
 const ModeToggle = () => {
-  const { selected, setSelected } = useContext(UnitToggleContext);
+  const { selected, setSelected } = useContext(ModeToggleContext);
 
   return (
     <div

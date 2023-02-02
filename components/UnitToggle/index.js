@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { UnitToggleContext } from "components/UnitToggleProvider";
+import { UnitToggleContext } from "@/components/UnitToggleProvider";
 import styles from "./styles.module.scss";
 
 const UnitToggle = () => {
