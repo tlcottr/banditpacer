@@ -41,7 +41,11 @@ export default function Home() {
     <>
       <div className="h-full">
         <div className="py-8 font-GroteskMedium text-5xl">
-          <div>LET’S PACE IT OUT.</div>
+          {selected === "TIME" ? (
+            <div>LET’S PACE IT OUT.</div>
+          ) : (
+            <div>TIME TO FINISH STRONG.</div>
+          )}
         </div>
         <div className="">
           <div className="flex flex-row space-between items-center border border-solid borer-white rounded-xl w-full mb-2 relative">
