@@ -17,7 +17,7 @@ export default function Home() {
             className="px-3 py-3 uppercase font-GroteskRegular text-2xl focus:border-black focus:ring-0 bg-transparent rounded-xl w-full text-black"
             placeholder="Enter Distance"
             input
-            type="text"
+            type="number"
             pattern="\d*"
           ></input>
           <UnitToggle />
