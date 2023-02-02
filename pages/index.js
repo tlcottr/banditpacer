@@ -2,14 +2,20 @@ import Prompt from "@/components/Prompt";
 import UnitToggle from "@/components/UnitToggle";
 import { ModeToggleContext } from "@/components/ModeToggleProvider";
 import { UnitToggleContext } from "@/components/UnitToggleProvider";
-import { useState, useContext } from "react";
+import { useState, useContext, use } from "react";
+import styles from "../styles/styles.module.scss";
 
 export default function Home() {
   const [open, setOpen] = useState(false);
+  const [styled, setStyled] = useState(false);
   const { selected, setSelected } = useContext(ModeToggleContext);
 
   const distanceHandler = () => {
     setOpen(!open);
+  };
+
+  const styleHandler = () => {
+    setStyled(!styled);
   };
 
   const PopUp = () => {
@@ -24,10 +30,15 @@ export default function Home() {
               input
               type="number"
               inputmode="decimal"
+              onFocus={() => styleHandler()}
             ></input>
             <UnitToggle />
           </div>
-          <div className="text-2xl text-black uppercase font-GroteskMedium w-full">
+          <div
+            className={`text-2xl text-black uppercase font-GroteskMedium w-full ${
+              styled && styles.dim
+            }`}
+          >
             <ul>
               <li className="flex flex-row items-center justify-between w-full py-2">
                 <li>Mile</li>
