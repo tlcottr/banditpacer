@@ -12,17 +12,17 @@ const UnitToggle = () => {
       >
         <div
           className={`px-3 py-1 text-black ${
-            selected === "PACE" ? styles.selector : styles.slideLeftToRight
+            selected === "MI" ? styles.selector : styles.slideLeftToRight
           }`}
-          onClick={() => setSelected("PACE")}
+          onClick={() => setSelected("MI")}
         >
           MI
         </div>
         <div
           className={`px-3 py-1 text-black ${
-            selected === "TIME" ? styles.selector : styles.slideLeftToRight
+            selected === "KM" ? styles.selector : styles.slideLeftToRight
           }`}
-          onClick={() => setSelected("TIME")}
+          onClick={() => setSelected("KM")}
         >
           KM
         </div>
