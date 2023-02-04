@@ -1,26 +1,38 @@
 import { useState, useEffect } from "react";
 
-const PopUpFinish = ({ onFinishButtonClick }) => {
-  const [inputValueHours, setInputValueHours] = useState("");
+const PopUpPace = ({ onPaceButtonClick }) => {
   const [inputValueMinutes, setInputValueMinutes] = useState("");
   const [inputValueSeconds, setInputValueSeconds] = useState("");
-  const [finalValue, setFinalValue] = useState("");
+  const [paceValue, setPaceValue] = useState("");
 
   useEffect(() => {
-    setFinalValue(
-      `${inputValueHours || "00"}:${inputValueMinutes || "00"}:${
-        inputValueSeconds || "00"
-      }`
+    setPaceValue(`${inputValueMinutes || "00"}:${inputValueSeconds || "00"}`);
+  }, [inputValueMinutes, inputValueSeconds]);
+
+  const Add = () => {
+    return (
+      <svg
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          fill-rule="evenodd"
+          clip-rule="evenodd"
+          d="M13 2H11V11H2L2 13H11L11 22H13L13 13L22 13V11L13 11V2Z"
+          fill="white"
+        />
+      </svg>
     );
-  }, [inputValueHours, inputValueMinutes, inputValueSeconds]);
-
-  const handleButtonClickFinish = () => {
-    onFinishButtonClick(finalValue);
   };
 
-  const handleChangeHours = (e) => {
-    setInputValueHours(e.target.value || "00");
+  const handleButtonClickPace = () => {
+    console.log(paceValue);
+    onPaceButtonClick(paceValue);
   };
+
   const handleChangeMinutes = (e) => {
     setInputValueMinutes(e.target.value || "00");
   };
@@ -39,20 +51,6 @@ const PopUpFinish = ({ onFinishButtonClick }) => {
               input
               type="number"
               inputmode="decimal"
-              onChange={handleChangeHours}
-              value={inputValueHours}
-            ></input>
-            <div className="text-2xl text-black uppercase font-GroteskRegular absolute right-4">
-              H
-            </div>
-          </div>
-          <div className="flex flex-row items-center justify-between mx-[4px] relative">
-            <input
-              className="px-3 py-3 uppercase font-GroteskRegular text-2xl border border-black border-solid focus:border-black focus:ring-0 bg-transparent rounded-xl w-full text-black"
-              placeholder="00"
-              input
-              type="number"
-              inputmode="decimal"
               onChange={handleChangeMinutes}
               value={inputValueMinutes}
             ></input>
@@ -60,7 +58,7 @@ const PopUpFinish = ({ onFinishButtonClick }) => {
               M
             </div>
           </div>
-          <div className="flex flex-row items-center justify-between ml-[4px] relative">
+          <div className="flex flex-row items-center justify-between mx-[4px] relative">
             <input
               className="px-3 py-3 uppercase font-GroteskRegular text-2xl border border-black border-solid focus:border-black focus:ring-0 bg-transparent rounded-xl w-full text-black"
               placeholder="00"
@@ -74,12 +72,15 @@ const PopUpFinish = ({ onFinishButtonClick }) => {
               S
             </div>
           </div>
+          <div className="flex justify-center items-center ml-[4px]">
+            <button className="bg-black rounded-lg w-full p-4">
+              <Add />
+            </button>
+          </div>
         </div>
         <div
           className={`text-2xl text-black uppercase font-GroteskMedium w-full ${
-            inputValueHours || inputValueMinutes || inputValueSeconds
-              ? "opacity-25"
-              : ""
+            inputValueMinutes || inputValueSeconds ? "opacity-25" : ""
           }`}
         >
           <ul>
@@ -144,16 +145,16 @@ const PopUpFinish = ({ onFinishButtonClick }) => {
           <div className="pt-3 border-t border-solid border-black">
             <button
               className="bg-[#C97900] w-full rounded-lg mt-2 px-3 py-3 uppercase font-GroteskRegular text-3xl focus:border-white focus:ring-0"
-              onClick={handleButtonClickFinish}
+              onClick={handleButtonClickPace}
             >
               <span
                 className={
-                  inputValueHours || inputValueMinutes || inputValueSeconds
+                  inputValueMinutes || inputValueSeconds
                     ? "opacity-100"
                     : "opacity-50"
                 }
               >
-                Set Finish Time
+                Set Pace
               </span>
             </button>
           </div>
@@ -163,4 +164,4 @@ const PopUpFinish = ({ onFinishButtonClick }) => {
   );
 };
 
-export default PopUpFinish;
+export default PopUpPace;
