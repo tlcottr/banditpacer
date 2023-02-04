@@ -88,7 +88,7 @@ export default function Home() {
   };
   const Prompt = () => {
     return (
-      <div>
+      <div className="relative">
         <div className="h-full">
           <div className="py-8 font-GroteskMedium text-5xl">
             {selected === "PACE" ? (
