@@ -31,7 +31,7 @@ const PopUpFinish = ({ onFinishButtonClick }) => {
 
   return (
     <div className="fixed bottom-0 right=0 left-0 w-full p-5 pt-8 bg-white h-auto z-[1000]">
-      <div className="flex flex-col justify-between h-full">
+      <div className="flex flex-col justify-between h-full md:max-w-lg md:m-auto">
         <div className="flex flex-row justify-between items-center w-full mb-8 relative">
           <div className="flex flex-row items-center justify-between mr-[4px] relative">
             <input

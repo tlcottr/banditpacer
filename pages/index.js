@@ -185,7 +185,7 @@ export default function Home() {
             )}
           </div>
         </div>
-        <div className="px-3 py-6 w-full fixed bottom-0 right-0 left-0">
+        <div className="px-3 py-6 w-full fixed bottom-0 right-0 left-0 md:max-w-lg md:m-auto">
           <div className="pt-3 border-t border-solid border-white">
             <button
               className="bg-[#C97900] w-full rounded-lg mt-2 px-3 py-3 uppercase font-GroteskRegular text-3xl focus:border-white focus:ring-0 z-[100]"
