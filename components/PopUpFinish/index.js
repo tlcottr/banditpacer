@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 
 const PopUpFinish = ({ onFinishButtonClick }) => {
-  const [inputValueHours, setInputValueHours] = useState("00");
-  const [inputValueMinutes, setInputValueMinutes] = useState("00");
-  const [inputValueSeconds, setInputValueSeconds] = useState("00");
+  const [inputValueHours, setInputValueHours] = useState("");
+  const [inputValueMinutes, setInputValueMinutes] = useState("");
+  const [inputValueSeconds, setInputValueSeconds] = useState("");
   const [finalValue, setFinalValue] = useState("");
 
   useEffect(() => {
@@ -37,6 +37,7 @@ const PopUpFinish = ({ onFinishButtonClick }) => {
               placeholder="00"
               input
               type="number"
+              inputmode="decimal"
               onChange={handleChangeHours}
               value={inputValueHours}
             ></input>
@@ -50,6 +51,7 @@ const PopUpFinish = ({ onFinishButtonClick }) => {
               placeholder="00"
               input
               type="number"
+              inputmode="decimal"
               onChange={handleChangeMinutes}
               value={inputValueMinutes}
             ></input>
@@ -64,6 +66,7 @@ const PopUpFinish = ({ onFinishButtonClick }) => {
               input
               type="number"
               onChange={handleChangeSeconds}
+              inputmode="decimal"
               value={inputValueSeconds}
             ></input>
             <div className="text-2xl text-black uppercase font-GroteskRegular absolute right-4">
