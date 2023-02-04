@@ -8,7 +8,9 @@ const PopUpFinish = ({ onFinishButtonClick }) => {
 
   useEffect(() => {
     setFinalValue(
-      `${inputValueHours}:${inputValueMinutes}:${inputValueSeconds}`
+      `${inputValueHours || "00"}:${inputValueMinutes || "00"}:${
+        inputValueSeconds || "00"
+      }`
     );
   }, [inputValueHours, inputValueMinutes, inputValueSeconds]);
 
