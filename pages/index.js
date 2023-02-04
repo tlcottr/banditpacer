@@ -375,13 +375,13 @@ export default function Home() {
             </div>
           </div>
         )}
-        <div className="px-3 pt-6 w-full fixed bottom-0 right-0 left-0 md:max-w-lg md:m-auto">
-          <div className="border-t border-solid border-white">
-            <button className="bg-[#C97900] w-full rounded-lg mt-2 px-3 py-3 uppercase font-GroteskRegular text-3xl focus:border-white focus:ring-0 z-[100] mb-2">
+        <div className="px-3 py-3 w-full fixed bottom-0 right-0 left-0 md:max-w-lg md:m-auto">
+          <div className="border-t border-solid border-white flex flex-row items-center justify-between">
+            <button className="bg-[#C97900] w-full rounded-lg mt-2 px-3 py-3 uppercase font-GroteskRegular text-3xl focus:border-white focus:ring-0 z-[100] border border-solid border-[#C97900] mr-1">
               <span className="opacity-100">Share</span>
             </button>
             <button
-              className="w-full rounded-lg mt-2 px-3 py-3 uppercase font-GroteskRegular text-3xl focus:border-white focus:ring-0 z-[100] border border-solid border-white"
+              className="w-full rounded-lg mt-2 px-3 py-3 uppercase font-GroteskRegular text-3xl focus:border-white focus:ring-0 z-[100] border border-solid border-white ml-1"
               onClick={(event) => (window.location.href = "/")}
             >
               <span className="opacity-100">Restart</span>
