@@ -3,7 +3,7 @@ import { UnitToggleContext } from "@/components/UnitToggleProvider";
 import styles from "./styles.module.scss";
 
 const UnitToggle = () => {
-  const { selected, setSelected } = useContext(UnitToggleContext);
+  const { unit, setUnit } = useContext(UnitToggleContext);
 
   return (
     <div className="right-8 fixed">
@@ -12,17 +12,17 @@ const UnitToggle = () => {
       >
         <div
           className={`px-3 py-1 text-black ${
-            selected === "MI" ? styles.selector : styles.slideLeftToRight
+            unit === "MI" ? styles.selector : styles.slideLeftToRight
           }`}
-          onClick={() => setSelected("MI")}
+          onClick={() => setUnit("MI")}
         >
           MI
         </div>
         <div
           className={`px-3 py-1 text-black ${
-            selected === "KM" ? styles.selector : styles.slideLeftToRight
+            unit === "KM" ? styles.selector : styles.slideLeftToRight
           }`}
-          onClick={() => setSelected("KM")}
+          onClick={() => setUnit("KM")}
         >
           KM
         </div>

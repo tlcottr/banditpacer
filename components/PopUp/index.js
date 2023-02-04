@@ -3,7 +3,7 @@ import { UnitToggleContext } from "@/components/UnitToggleProvider";
 import UnitToggle from "../UnitToggle";
 
 const PopUp = ({ onButtonClick }) => {
-  const { selected, setSelected } = useContext(UnitToggleContext);
+  const { unit, setUnit } = useContext(UnitToggleContext);
   const [inputValue, setInputValue] = useState("");
   const [value, setValue] = useState("");
 
@@ -42,10 +42,10 @@ const PopUp = ({ onButtonClick }) => {
           <ul>
             <li
               className="flex flex-row items-center justify-between w-full py-2 cursor-pointer"
-              onClick={() => setDistance("1.0")}
+              onClick={() => setDistance(unit === "MI" ? "1.0" : "1.61")}
             >
               <li>Mile</li>
-              {selected === "MI" ? (
+              {unit === "MI" ? (
                 <li className="text-[#7F7C81]">1.0</li>
               ) : (
                 <li className="text-[#7F7C81]">1.61</li>
@@ -53,39 +53,31 @@ const PopUp = ({ onButtonClick }) => {
             </li>
             <li
               className="flex flex-row items-center justify-between w-full py-2 cursor-pointer"
-              onClick={() => setDistance("3.1")}
+              onClick={() => setDistance(unit === "MI" ? "3.1" : "5.0")}
             >
               <li>5K</li>
-              <li className="text-[#7F7C81]">
-                {selected === "MI" ? 3.1 : 5.0}
-              </li>
+              <li className="text-[#7F7C81]">{unit === "MI" ? 3.1 : 5.0}</li>
             </li>
             <li
               className="flex flex-row items-center justify-between w-full py-2 cursor-pointer"
-              onClick={() => setDistance("6.2")}
+              onClick={() => setDistance(unit === "MI" ? "6.2" : "10.0")}
             >
               <li>10K</li>
-              <li className="text-[#7F7C81]">
-                {selected === "MI" ? 6.2 : 10.0}
-              </li>
+              <li className="text-[#7F7C81]">{unit === "MI" ? 6.2 : 10.0}</li>
             </li>
             <li
               className="flex flex-row items-center justify-between w-full py-2"
-              onClick={() => setDistance("13.1")}
+              onClick={() => setDistance(unit === "MI" ? "13.1" : "21.8")}
             >
               <li>Half</li>
-              <li className="text-[#7F7C81]">
-                {selected === "MI" ? 13.1 : 21.8}
-              </li>
+              <li className="text-[#7F7C81]">{unit === "MI" ? 13.1 : 21.8}</li>
             </li>
             <li
               className="flex flex-row items-center justify-between w-full py-2"
-              onClick={() => setDistance("26.2")}
+              onClick={() => setDistance(unit === "MI" ? "26.2" : "42.16")}
             >
               <li>Marathon</li>
-              <li className="text-[#7F7C81]">
-                {selected === "MI" ? 26.2 : 42.16}
-              </li>
+              <li className="text-[#7F7C81]">{unit === "MI" ? 26.2 : 42.16}</li>
             </li>
           </ul>
         </div>
