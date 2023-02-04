@@ -347,9 +347,6 @@ export default function Home() {
               </span>
               <div className="bg-[#C4A6A8] text-black text-7xl uppercase font-GroteskMedium px-2 py-1 rounded-md flex flex-row justify-between items-end">
                 <span>{result2}</span>
-                <span className="text-3xl">
-                  {unit === "MI" ? "/MI" : "/KM"}
-                </span>
               </div>
             </div>
             <div className="flex flex-row">
