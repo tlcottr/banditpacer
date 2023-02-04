@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 
 const PopUpFinish = ({ onFinishButtonClick }) => {
-  const [inputValueHours, setInputValueHours] = useState("");
-  const [inputValueMinutes, setInputValueMinutes] = useState("");
-  const [inputValueSeconds, setInputValueSeconds] = useState("");
+  const [inputValueHours, setInputValueHours] = useState("00");
+  const [inputValueMinutes, setInputValueMinutes] = useState("00");
+  const [inputValueSeconds, setInputValueSeconds] = useState("00");
   const [finalValue, setFinalValue] = useState("");
 
   useEffect(() => {
@@ -18,13 +18,13 @@ const PopUpFinish = ({ onFinishButtonClick }) => {
   };
 
   const handleChangeHours = (e) => {
-    setInputValueHours(e.target.value);
+    setInputValueHours(e.target.value || "00");
   };
   const handleChangeMinutes = (e) => {
-    setInputValueMinutes(e.target.value);
+    setInputValueMinutes(e.target.value || "00");
   };
   const handleChangeSeconds = (e) => {
-    setInputValueSeconds(e.target.value);
+    setInputValueSeconds(e.target.value || "00");
   };
 
   return (

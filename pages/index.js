@@ -233,13 +233,33 @@ export default function Home() {
             <div>TIME TO FINISH STRONG.</div>
           )}
         </div>
-        <div className="w-full bg-[#C97900] p-4 rounded-md flex flex-col justify-between">
+        <div className="w-full bg-[#BF3E2B] p-4 rounded-md flex flex-col justify-between mb-2">
           <span className="text-black text-xl uppercase font-GroteskMedium mb-4">
             Your Pace
           </span>
-          <div className="bg-[#C9C3AD] text-black text-7xl uppercase font-GroteskMedium px-2 py-1 rounded-md flex flex-row justify-between items-end">
+          <div className="bg-[#C4A6A8] text-black text-7xl uppercase font-GroteskMedium px-2 py-1 rounded-md flex flex-row justify-between items-end">
             <span>{result}</span>
             <span className="text-3xl">{unit === "MI" ? "/MI" : "/KM"}</span>
+          </div>
+        </div>
+        <div className="flex flex-row">
+          <div className="w-1/2 bg-[#BF3E2B] p-4 rounded-md flex flex-col justify-between">
+            <span className="text-black text-xl uppercase font-GroteskMedium mb-4">
+              Your Pace
+            </span>
+            <div className="bg-[#C4A6A8] text-black text-4xl uppercase font-GroteskMedium px-2 py-1 rounded-md flex flex-row justify-between items-end">
+              <span>{result}</span>
+              <span className="text-3xl">{unit === "MI" ? "/MI" : "/KM"}</span>
+            </div>
+          </div>
+          <div className="w-1/2 bg-[#BF3E2B] p-4 rounded-md flex flex-col justify-between">
+            <span className="text-black text-xl uppercase font-GroteskMedium mb-4">
+              Your Pace
+            </span>
+            <div className="bg-[#C4A6A8] text-black text-4xl uppercase font-GroteskMedium px-2 py-1 rounded-md flex flex-row justify-between items-end">
+              <span>{result}</span>
+              <span className="text-3xl">{unit === "MI" ? "/MI" : "/KM"}</span>
+            </div>
           </div>
         </div>
       </div>
