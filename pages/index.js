@@ -243,22 +243,21 @@ export default function Home() {
           </div>
         </div>
         <div className="flex flex-row">
-          <div className="w-1/2 bg-[#BF3E2B] p-4 rounded-md flex flex-col justify-between">
+          <div className="w-1/2 bg-[#2C4A18] p-4 rounded-md flex flex-col justify-between mr-1">
             <span className="text-black text-xl uppercase font-GroteskMedium mb-4">
-              Your Pace
+              Dist
             </span>
-            <div className="bg-[#C4A6A8] text-black text-4xl uppercase font-GroteskMedium px-2 py-1 rounded-md flex flex-row justify-between items-end">
-              <span>{result}</span>
-              <span className="text-3xl">{unit === "MI" ? "/MI" : "/KM"}</span>
+            <div className="bg-[#94A89C] text-black text-3xl uppercase font-GroteskMedium px-2 py-1 rounded-md flex flex-row justify-between items-end">
+              <span>{inputValue}</span>
+              <span className="text-3xl">{unit === "MI" ? "MI" : "KM"}</span>
             </div>
           </div>
-          <div className="w-1/2 bg-[#BF3E2B] p-4 rounded-md flex flex-col justify-between">
+          <div className="w-1/2 bg-[#4A599C] p-4 rounded-md flex flex-col justify-between ml-1">
             <span className="text-black text-xl uppercase font-GroteskMedium mb-4">
-              Your Pace
+              Time
             </span>
-            <div className="bg-[#C4A6A8] text-black text-4xl uppercase font-GroteskMedium px-2 py-1 rounded-md flex flex-row justify-between items-end">
-              <span>{result}</span>
-              <span className="text-3xl">{unit === "MI" ? "/MI" : "/KM"}</span>
+            <div className="bg-[#A3B0B6] text-black text-3xl uppercase font-GroteskMedium px-2 py-1 rounded-md flex flex-row justify-between items-end">
+              <span>{inputFinishValue}</span>
             </div>
           </div>
         </div>
