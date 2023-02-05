@@ -338,7 +338,7 @@ export default function Home() {
         ) : (
           <div>
             <div className="py-8 font-GroteskMedium text-5xl">
-              NICE LOOKIN’ PACE.
+              ENJOY THE RUN.
             </div>
             <div className="w-full bg-[#BF3E2B] p-4 rounded-md flex flex-col justify-between mb-2">
               <span className="text-black text-xl uppercase font-GroteskMedium mb-4">
