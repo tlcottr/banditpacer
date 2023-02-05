@@ -86,6 +86,19 @@ export default function Home() {
     setOpenPace(!openPace);
   };
 
+  const setDistanceParentInputValue = (value) => {
+    setInputValue(value);
+    distanceHandler();
+  };
+  const setFinishParentInputValue = (finalValue) => {
+    setInputFinishValue(finalValue);
+    finishHandler();
+  };
+  const setPaceParentInputValue = (paceValue) => {
+    setInputPaceValue(paceValue);
+    paceHandler();
+  };
+
   const CloseOut = () => {
     return (
       <svg
@@ -103,19 +116,6 @@ export default function Home() {
         />
       </svg>
     );
-  };
-
-  const setDistanceParentInputValue = (value) => {
-    setInputValue(value);
-    distanceHandler();
-  };
-  const setFinishParentInputValue = (finalValue) => {
-    setInputFinishValue(finalValue);
-    finishHandler();
-  };
-  const setPaceParentInputValue = (paceValue) => {
-    setInputPaceValue(paceValue);
-    paceHandler();
   };
 
   const Obscurer = (props) => {
@@ -241,7 +241,7 @@ export default function Home() {
                     inputValue || inputPaceValue ? "opacity-100" : "opacity-50"
                   }`}
                 >
-                  Pace Me
+                  Time Me
                 </span>
               </button>
             ) : (
@@ -256,7 +256,7 @@ export default function Home() {
                       : "opacity-50"
                   }`}
                 >
-                  Time Me
+                  Pace Me
                 </span>
               </button>
             )}

@@ -27,6 +27,7 @@ const PopUpPace = ({ onPaceButtonClick }) => {
       </svg>
     );
   };
+  
 
   const handleButtonClickPace = () => {
     console.log(paceValue);
