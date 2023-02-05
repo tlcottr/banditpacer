@@ -6,7 +6,7 @@ const UnitToggle = () => {
   const { unit, setUnit } = useContext(UnitToggleContext);
 
   return (
-    <div className="right-8 lg:right-4 lg:absolute">
+    <div className="right-4 absolute lg:right-4 lg:absolute">
       <div
         className={`flex flex-row items-center justify-between border border-solid border-black text-white text-lg rounded-lg ${styles.unitToggle}`}
       >

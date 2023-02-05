@@ -40,6 +40,25 @@ const PopUpPace = ({ onPaceButtonClick }) => {
     setInputValueSeconds(e.target.value || "00");
   };
 
+  const CloseOut = () => {
+    return (
+      <svg
+        width="16"
+        height="16"
+        viewBox="0 0 12 12"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          fill-rule="evenodd"
+          clip-rule="evenodd"
+          d="M11.6569 1.75735L10.2426 0.343135L6 4.58578L1.75736 0.343135L0.343146 1.75735L4.58579 5.99999L0.343146 10.2426L1.75736 11.6568L6 7.4142L10.2426 11.6568L11.6569 10.2426L7.41421 5.99999L11.6569 1.75735Z"
+          fill="black"
+        />
+      </svg>
+    );
+  };
+
   return (
     <div className="fixed bottom-0 right=0 left-0 w-full p-5 pt-8 bg-white h-auto z-[1000]">
       <div className="flex flex-col justify-between h-full md:max-w-lg md:m-auto">
@@ -85,59 +104,40 @@ const PopUpPace = ({ onPaceButtonClick }) => {
         >
           <ul>
             <li
-              className="flex flex-row items-center justify-between w-full py-2 cursor-pointer"
+              className="flex flex-row items-center justify-between w-full py-1 cursor-pointer"
               onClick={() =>
-                setInputValueHours("02") ||
-                setInputValueMinutes("53") ||
-                setInputValueSeconds("00")
+                setInputValueMinutes("10") || setInputValueSeconds("30")
               }
             >
-              <li>Boston</li>
-              <li className="text-[#7F7C81]">02:53:00</li>
+              <li>Recovery</li>
+              <span className="flex flex-row items-center justify-between text-[#7F7C81] text-[16pt] border border-solid border-black rounded-lg px-2 py-[.5px]">
+                <li className="mr-4">10:30</li>
+                <CloseOut />
+              </span>
             </li>
             <li
-              className="flex flex-row items-center justify-between w-full py-2 cursor-pointer"
+              className="flex flex-row items-center justify-between w-full py-1 cursor-pointer"
               onClick={() =>
-                setInputValueHours("02") ||
-                setInputValueMinutes("53") ||
-                setInputValueSeconds("00")
+                setInputValueMinutes("9") || setInputValueSeconds("00")
               }
             >
-              <li>New York</li>
-              <li className="text-[#7F7C81]">02:53:00</li>
+              <li>Easy</li>
+              <span className="flex flex-row items-center justify-between text-[#7F7C81] text-[16pt] border border-solid border-black rounded-lg px-2 py-[.5px]">
+                <li className="mr-4">9:00</li>
+                <CloseOut />
+              </span>
             </li>
             <li
-              className="flex flex-row items-center justify-between w-full py-2 cursor-pointer"
+              className="flex flex-row items-center justify-between w-full py-1 cursor-pointer"
               onClick={() =>
-                setInputValueHours("02") ||
-                setInputValueMinutes("53") ||
-                setInputValueSeconds("00")
+                setInputValueMinutes("7") || setInputValueSeconds("30")
               }
             >
-              <li>London</li>
-              <li className="text-[#7F7C81]">02:53:00</li>
-            </li>
-            <li
-              className="flex flex-row items-center justify-between w-full py-2"
-              onClick={() =>
-                setInputValueHours("02") ||
-                setInputValueMinutes("53") ||
-                setInputValueSeconds("00")
-              }
-            >
-              <li>Berlin</li>
-              <li className="text-[#7F7C81]">02:53:00</li>
-            </li>
-            <li
-              className="flex flex-row items-center justify-between w-full py-2"
-              onClick={() =>
-                setInputValueHours("02") ||
-                setInputValueMinutes("53") ||
-                setInputValueSeconds("00")
-              }
-            >
-              <li>Chicago</li>
-              <li className="text-[#7F7C81]">02:53:00</li>
+              <li>Tempo</li>
+              <span className="flex flex-row items-center justify-between text-[#7F7C81] text-[16pt] border border-solid border-black rounded-lg px-2 py-[.5px]">
+                <li className="mr-4">7:30</li>
+                <CloseOut />
+              </span>
             </li>
           </ul>
         </div>
