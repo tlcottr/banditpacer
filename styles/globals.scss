@@ -4,7 +4,13 @@
 
 html {
   background-color: var(--background);
-  height: auto;
+  min-height: fill-available;
+  min-height: -webkit-fill-available;
+}
+body {
+  min-height: 100vh;
+  min-height: fill-available;
+  min-height: -webkit-fill-available;
 }
 
 @font-face {
