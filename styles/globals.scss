@@ -5,7 +5,7 @@
 html {
   background-color: var(--background);
   height: fill-available;
-  min-height: -webkit-fill-available;
+  height: -webkit-fill-available;
 }
 body {
   min-height: 100vh;
