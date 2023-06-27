@@ -1,395 +1,147 @@
-import { ModeToggleContext } from "@/components/ModeToggleProvider";
-import { useState, useContext, useEffect } from "react";
-import PopUp from "@/components/PopUp";
-import PopUpFinish from "@/components/PopUpFinish";
-import PopUpPace from "@/components/PopUpPace";
-import { UnitToggleContext } from "@/components/UnitToggleProvider";
+import { useState } from "react";
 
 export default function Home() {
-  const [openDistance, setOpenDistance] = useState(false);
-  const [openFinish, setOpenFinish] = useState(false);
-  const [openPace, setOpenPace] = useState(false);
-  const { selected, setSelected } = useContext(ModeToggleContext);
-  const { unit, setUnit } = useContext(UnitToggleContext);
-  const [inputValue, setInputValue] = useState();
-  const [inputFinishValue, setInputFinishValue] = useState();
-  const [inputPaceValue, setInputPaceValue] = useState();
-  const [result, setResult] = useState("");
-  const [resulted, setResulted] = useState("");
-  const [result2, setResult2] = useState("");
-  const [resulted2, setResulted2] = useState("");
+  const [unit, setUnit] = useState(true);
 
-  // Calculations //
-  const calculateResult = () => {
-    let timeInSeconds = 0;
-    const timeArray = inputFinishValue.split(":");
-    timeInSeconds += parseInt(timeArray[0], 10) * 3600;
-    timeInSeconds += parseInt(timeArray[1], 10) * 60;
-    timeInSeconds += parseInt(timeArray[2], 10);
-    const paceInSeconds = timeInSeconds / inputValue;
-    const minutes = Math.floor(paceInSeconds / 60);
-    const seconds = Math.floor(paceInSeconds % 60);
-    const result = `${minutes}:${seconds.toString().padStart(2, "0")}`;
-    return result;
-  };
+  const dist = 26.2;
+  const time = "03:45:07";
+  const pace = "8'35";
 
-  const calculateFinishTime = () => {
-    let paceInSeconds = 0;
-    const paceArray = inputPaceValue.split(":");
-    paceInSeconds += parseInt(paceArray[0], 10) * 60;
-    paceInSeconds += parseInt(paceArray[1], 10);
-    const timeInSeconds = paceInSeconds * inputValue;
-    const hours = Math.floor(timeInSeconds / 3600);
-    const minutes = Math.floor((timeInSeconds % 3600) / 60);
-    const seconds = Math.floor(timeInSeconds % 60);
-    const result2 = `${hours.toString().padStart(2, "0")}:${minutes
-      .toString()
-      .padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`;
-    console.log(result2);
-    return result2;
-  };
+  const presetChips = [
+    { title: "MILE", MI: "1", KM: "1.61" },
+    { title: "5K", MI: "5", KM: "5" },
+    { title: "10K", MI: "6.21", KM: "10" },
+    { title: "HALF", MI: "13.1", KM: "21.08" },
+    { title: "MARATHON", MI: "26.2", KM: "42.16" },
+  ];
 
-  const handleCalculate = (result) => {
-    calculateResult();
-    const resulted = setResulted(result);
-    return [resulted, result];
-  };
-  const handleCalculate2 = (result2) => {
-    calculateFinishTime();
-    const resulted2 = setResulted2(result2);
-    return [resulted2, result2];
-  };
-
-  useEffect(() => {
-    if (inputValue && inputFinishValue) {
-      setResult(calculateResult());
-    }
-  }, [inputValue, inputFinishValue, unit]);
-
-  useEffect(() => {
-    if (inputValue && inputPaceValue) {
-      setResult2(calculateFinishTime());
-    }
-  }, [inputValue, inputPaceValue, unit]);
-
-  // Handlers //
-
-  const distanceHandler = () => {
-    setOpenDistance(!openDistance);
-  };
-
-  const finishHandler = () => {
-    setOpenFinish(!openFinish);
-  };
-
-  const paceHandler = () => {
-    setOpenPace(!openPace);
-  };
-
-  const setDistanceParentInputValue = (value) => {
-    setInputValue(value);
-    distanceHandler();
-  };
-  const setFinishParentInputValue = (finalValue) => {
-    setInputFinishValue(finalValue);
-    finishHandler();
-  };
-  const setPaceParentInputValue = (paceValue) => {
-    setInputPaceValue(paceValue);
-    paceHandler();
-  };
-
-  const CloseOut = () => {
+  const DownArrow = ({ size, color }) => {
+    const iconSize = size || 36;
+    const iconColor = color || "fill-gray-600";
     return (
       <svg
-        width="16"
-        height="16"
-        viewBox="0 0 12 12"
-        fill="none"
+        viewBox="0 0 29 29"
         xmlns="http://www.w3.org/2000/svg"
+        height={`${iconSize}`}
+        width={`${iconSize}`}
+        fill={iconColor}
+        className="focus:fill-[#d07c04]"
       >
-        <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
-          d="M11.6569 1.75735L10.2426 0.343135L6 4.58578L1.75736 0.343135L0.343146 1.75735L4.58579 5.99999L0.343146 10.2426L1.75736 11.6568L6 7.4142L10.2426 11.6568L11.6569 10.2426L7.41421 5.99999L11.6569 1.75735Z"
-          fill="black"
-        />
+        <path d="M20.9977 20.9976C18.7115 23.3191 16.8564 26.0288 15.519 29L12.6504 29C11.3066 26.0305 9.44929 23.3215 7.16387 20.9976C5.24183 19.1504 2.6654 18.1412 9.12344e-05 18.1916L9.1428e-05 13.7632C3.25018 13.7632 5.86279 14.547 7.83793 16.1146C9.83435 17.7328 11.2622 19.9459 11.9136 22.4319L12.0704 22.4319L12.0704 -7.05762e-07L16.1225 -5.28636e-07L16.1225 22.4397L16.3577 22.4397C16.982 19.9556 18.3923 17.7398 20.3785 16.1224C22.3484 14.5549 24.961 13.7711 28.2163 13.7711L28.2163 18.1995C26.8779 18.1671 25.5462 18.3988 24.2974 18.8814C23.0689 19.3627 21.9476 20.0819 20.9977 20.9976V20.9976Z" />
       </svg>
     );
   };
 
-  const Obscurer = (props) => {
-    return (
-      <div
-        className="fixed inset-0 w-full p-5 bg-black opacity-50 h-full z-[1] transition-opacity"
-        onClick={props.onClick}
-      ></div>
-    );
-  };
-  const Prompt = () => {
-    return (
+  return (
+    <div>
+      <div className="grid grid-cols-1 gap-[2vh] py-[3vh]">
+        <div className="w-full border border-solid border-gray-600 focus:border-[#d07c04] focus:text-[#d07c04] p-[1vh] rounded-lg grid grid-cols-1 gap-[.5vh]">
+          <div className="w-full text-left font-GroteskRegular text-[2.5vh] tracking-wider">
+            DISTANCE
+          </div>
+          <div className="flex flex-row justify-center items-end">
+            <div className="w-full text-left font-GroteskRegular text-[5vh] leading-[4vh] tracking-wider text-white">
+              {dist}
+            </div>
+            <div className="font-GroteskRegular text-[3vh] tracking-wider border border-solid border-gray-600 rounded-md px-1 text-white">
+              <div className="flex flex-row justify-between items-center">
+                <div onClick={() => setUnit(!unit)} className="mr-1">
+                  {unit ? "MI" : "KM"}
+                </div>
+                <DownArrow size={"2vh"} color={"#ffffff"} />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="w-full border border-solid border-gray-600 focus:border-[#d07c04] focus:text-[#d07c04] p-[1.5vh] rounded-lg grid grid-cols-1 gap-[.5vh]">
+          <div className="w-full text-left font-GroteskRegular text-[2.5vh] tracking-wider">
+            TIME
+          </div>
+          <div className="flex flex-row justify-center items-end">
+            <div className="w-full text-left font-GroteskRegular text-[5vh] leading-[4vh] tracking-wider text-white">
+              {time}
+            </div>
+          </div>
+        </div>
+        <div className="w-full border border-solid border-gray-600 focus:border-[#d07c04] focus:text-[#d07c04] p-[1.5vh] rounded-lg grid grid-cols-1 gap-[.5vh]">
+          <div className="w-full text-left font-GroteskRegular text-[2.5vh] tracking-wider">
+            PACE
+          </div>
+          <div className="flex flex-row justify-center items-end">
+            <div className="w-full text-left font-GroteskRegular text-[5vh] leading-[4vh] tracking-wider text-white">
+              {pace}
+            </div>
+            <div className="font-GroteskRegular text-[3vh] tracking-wider text-white">
+              <div className="flex flex-row justify-between items-center">
+                {unit ? "/MI" : "/KM"}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
       <div className="relative">
-        <div className="h-full">
-          <div className="py-8 font-GroteskMedium text-5xl">
-            {selected === "PACE" ? (
-              <div>LET’S PACE IT OUT.</div>
-            ) : (
-              <div>TIME TO FINISH STRONG.</div>
-            )}
-          </div>
-          <div className="">
-            <div className="flex flex-row space-between items-center border border-solid border-white rounded-xl w-full mb-2 relative">
-              <input
-                className="px-3 py-3 uppercase font-GroteskRegular text-2xl focus:border-white focus:ring-0 bg-transparent rounded-xl w-full placeholder-white"
-                placeholder="Distance"
-                value="Distance"
-                onChange={(e) => distanceValueHandler(e.target.value)}
-                onClick={() => distanceHandler()}
-              ></input>
-              {inputValue ? (
-                <button
-                  className="uppercase bg-white py-[6px] px-3 rounded-lg text-black text-xl absolute right-3 flex flex-row items-center justify-between"
-                  onClick={() => distanceHandler()}
-                >
-                  <span className="pr-3">
-                    {inputValue}
-                    <span className="text-[16px] text-GroteskMedium px-1">
-                      {unit === "MI" ? "MI" : "KM"}
-                    </span>
-                  </span>
-                  <span className="">
-                    <CloseOut />
-                  </span>
-                </button>
-              ) : (
-                <button
-                  className="uppercase bg-[#C97900] py-[6px] px-3 rounded-lg absolute right-3"
-                  onClick={() => distanceHandler()}
-                >
-                  Set
-                </button>
-              )}
-            </div>
-
-            {selected === "TIME" ? (
-              <div className="flex flex-row space-between items-center border border-solid border-white rounded-xl w-full mb-2 relative">
-                <input
-                  className="px-3 py-3 uppercase font-GroteskRegular text-2xl focus:border-white focus:ring-0 bg-transparent rounded-xl w-full placeholder-white"
-                  placeholder="Pace"
-                  value="Pace"
-                  onClick={() => paceHandler()}
-                ></input>
-                {inputPaceValue ? (
-                  <button
-                    className="uppercase bg-white py-[6px] px-3 rounded-lg text-black text-xl absolute right-3 flex flex-row items-center justify-between"
-                    onClick={() => paceHandler()}
-                  >
-                    <span className="pr-3">{inputPaceValue}</span>
-                    <span className="">
-                      <CloseOut />
-                    </span>
-                  </button>
-                ) : (
-                  <button
-                    className="uppercase bg-[#C97900] py-[6px] px-3 rounded-lg absolute right-3"
-                    onClick={() => paceHandler()}
-                  >
-                    Set
-                  </button>
-                )}
-              </div>
-            ) : (
-              <div className="flex flex-row space-between items-center border border-solid border-white rounded-xl w-full mb-2 relative">
-                <input
-                  className="px-3 py-3 uppercase font-GroteskRegular text-2xl focus:border-white focus:ring-0 bg-transparent rounded-xl w-full placeholder-white"
-                  placeholder="Finish Time"
-                  value="Finish Time"
-                  onClick={() => finishHandler()}
-                  onChange={(e) => distanceValueHandler(e.target.value)}
-                ></input>
-                {inputFinishValue ? (
-                  <button
-                    className="uppercase bg-white py-[6px] px-3 rounded-lg text-black text-xl absolute right-3 flex flex-row items-center justify-between"
-                    onClick={() => finishHandler()}
-                  >
-                    <span className="pr-3">{inputFinishValue}</span>
-                    <span className="">
-                      <CloseOut />
-                    </span>
-                  </button>
-                ) : (
-                  <button
-                    className="uppercase bg-[#C97900] py-[6px] px-3 rounded-lg absolute right-3"
-                    onClick={() => finishHandler()}
-                  >
-                    Set
-                  </button>
-                )}
-              </div>
-            )}
-          </div>
-        </div>
-        <div className="px-6 py-6 w-full fixed bottom-0 right-0 left-0 md:max-w-lg md:m-auto">
-          <div className="pt-3 border-t border-solid border-white">
-            {selected === "TIME" ? (
-              <button
-                className="bg-[#C97900] w-full rounded-lg mt-2 px-3 py-3 uppercase font-GroteskRegular text-3xl focus:border-white focus:ring-0 z-[100]"
-                onClick={handleCalculate2}
+        <div className="absolute inset-y-0 right-0 bottom-0 top-0 bg-gradient-to-r from-transparent to-black w-1/4 pointer-events-none"></div>
+        <div className="overflow-x-auto">
+          <div className="flex">
+            {presetChips.map((chip, index) => (
+              <div
+                key={index}
+                className="p-[1vh] bg-[#383434] font-GroteskRegular text-[2.5vh] uppercase tracking-wider rounded-md mr-[1vh]"
               >
-                <span
-                  className={`${
-                    inputValue || inputPaceValue ? "opacity-100" : "opacity-50"
-                  }`}
-                >
-                  Time Me
-                </span>
-              </button>
-            ) : (
-              <button
-                className="bg-[#C97900] w-full rounded-lg mt-2 px-3 py-3 uppercase font-GroteskRegular text-3xl focus:border-white focus:ring-0 z-[100]"
-                onClick={handleCalculate}
-              >
-                <span
-                  className={`${
-                    inputValue || inputFinishValue
-                      ? "opacity-100"
-                      : "opacity-50"
-                  }`}
-                >
-                  Pace Me
-                </span>
-              </button>
-            )}
-          </div>
-        </div>
-        {openPace && (
-          <>
-            <PopUpPace
-              onPaceButtonClick={(paceValue) =>
-                setPaceParentInputValue(paceValue)
-              }
-            />
-            <Obscurer onClick={paceHandler} />
-          </>
-        )}
-        {openFinish && (
-          <>
-            <PopUpFinish
-              onFinishButtonClick={(finalValue) =>
-                setFinishParentInputValue(finalValue)
-              }
-            />
-            <Obscurer onClick={finishHandler} />
-          </>
-        )}
-        {openDistance && (
-          <>
-            <PopUp
-              onButtonClick={(value) => setDistanceParentInputValue(value)}
-            />
-            <Obscurer onClick={distanceHandler} />
-          </>
-        )}
-      </div>
-    );
-  };
-
-  const Result = () => {
-    return (
-      <div>
-        {selected === "PACE" ? (
-          <div className="">
-            <div className="py-8 font-GroteskMedium text-5xl">
-              NICE LOOKIN’ PACE.
-            </div>
-            <div className="w-full bg-[#BF3E2B] p-4 rounded-md flex flex-col justify-between mb-2">
-              <span className="text-black text-xl uppercase font-GroteskMedium mb-4">
-                Your Pace
-              </span>
-              <div className="bg-[#C4A6A8] text-black text-7xl uppercase font-GroteskMedium px-2 py-1 rounded-md flex flex-row justify-between items-end">
-                <span>{result}</span>
-                <span className="text-3xl">
-                  {unit === "MI" ? "/MI" : "/KM"}
-                </span>
+                {chip.title}
               </div>
-            </div>
-            <div className="flex flex-row">
-              <div className="w-1/2 bg-[#2C4A18] p-4 rounded-md flex flex-col justify-between mr-1">
-                <span className="text-black text-xl uppercase font-GroteskMedium mb-4">
-                  Dist
-                </span>
-                <div className="bg-[#94A89C] text-black text-3xl uppercase font-GroteskMedium px-2 py-1 rounded-md flex flex-row justify-between items-end">
-                  <span>{inputValue}</span>
-                  <span className="text-3xl">
-                    {unit === "MI" ? "MI" : "KM"}
-                  </span>
-                </div>
-              </div>
-              <div className="w-1/2 bg-[#4A599C] p-4 rounded-md flex flex-col justify-between ml-1">
-                <span className="text-black text-xl uppercase font-GroteskMedium mb-4">
-                  Time
-                </span>
-                <div className="bg-[#A3B0B6] text-black text-3xl uppercase font-GroteskMedium px-2 py-1 rounded-md flex flex-row justify-between items-end">
-                  <span>{inputFinishValue}</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        ) : (
-          <div>
-            <div className="py-8 font-GroteskMedium text-5xl">
-              ENJOY THE RUN.
-            </div>
-            <div className="w-full bg-[#BF3E2B] p-4 rounded-md flex flex-col justify-between mb-2">
-              <span className="text-black text-xl uppercase font-GroteskMedium mb-4">
-                Your Finish Time
-              </span>
-              <div className="bg-[#C4A6A8] text-black text-7xl uppercase font-GroteskMedium px-2 py-1 rounded-md flex flex-row justify-between items-end">
-                <span>{result2}</span>
-              </div>
-            </div>
-            <div className="flex flex-row">
-              <div className="w-1/2 bg-[#2C4A18] p-4 rounded-md flex flex-col justify-between mr-1">
-                <span className="text-black text-xl uppercase font-GroteskMedium mb-4">
-                  Dist
-                </span>
-                <div className="bg-[#94A89C] text-black text-3xl uppercase font-GroteskMedium px-2 py-1 rounded-md flex flex-row justify-between items-end">
-                  <span>{inputValue}</span>
-                  <span className="text-3xl">
-                    {unit === "MI" ? "MI" : "KM"}
-                  </span>
-                </div>
-              </div>
-              <div className="w-1/2 bg-[#4A599C] p-4 rounded-md flex flex-col justify-between ml-1">
-                <span className="text-black text-xl uppercase font-GroteskMedium mb-4">
-                  Pace
-                </span>
-                <div className="bg-[#A3B0B6] text-black text-3xl uppercase font-GroteskMedium px-2 py-1 rounded-md flex flex-row justify-between items-end">
-                  <span>{inputPaceValue}</span>
-                  <span className="text-3xl">
-                    {unit === "MI" ? "/MI" : "/KM"}
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
-        )}
-        <div className="px-6 py-6 w-full fixed bottom-0 right-0 left-0 md:max-w-lg md:m-auto">
-          <div className="pt-3 border-t border-solid border-white flex flex-row items-center justify-between">
-            <button className="bg-[#C97900] w-full rounded-lg mt-2 px-3 py-3 uppercase font-GroteskRegular text-3xl focus:border-white focus:ring-0 z-[100] border border-solid border-[#C97900] mr-1">
-              <span className="opacity-100">Share</span>
-            </button>
-            <button
-              className="w-full rounded-lg mt-2 px-3 py-3 uppercase font-GroteskRegular text-3xl focus:border-white focus:ring-0 z-[100] border border-solid border-white ml-1"
-              onClick={(event) => (window.location.href = "/")}
-            >
-              <span className="opacity-100">Restart</span>
-            </button>
+            ))}
           </div>
         </div>
       </div>
-    );
-  };
-
-  return <>{resulted || resulted2 ? <Result /> : <Prompt />}</>;
+      <div className="pt-[1.5vh]">
+        <div className="grid grid-cols-3 gap-[1.5vh] text-center text-[3.5vh]">
+          <div className="px-[1vh] py-[.35vh] bg-[#7F7C81] font-GroteskRegular uppercase tracking-wider rounded-md col-span-1">
+            C
+          </div>
+          <div className="px-[1vh] py-[.35vh] bg-[#383434] font-GroteskRegular uppercase tracking-wider rounded-md col-span-1 flex items-center justify-center">
+            <DownArrow size={"2.75vh"} color={"#ffffff"} />
+          </div>
+          <div className="px-[1vh] py-[.35vh] bg-[#383434] font-GroteskRegular uppercase tracking-wider rounded-md col-span-1 flex items-center justify-center">
+            <span className="rotate-180">
+              <DownArrow size={"2.75vh"} color={"#ffffff"} />
+            </span>
+          </div>
+          <div className="px-[1vh] py-[.35vh] bg-[#333] font-GroteskRegular uppercase tracking-wider rounded-md col-span-1">
+            7
+          </div>
+          <div className="px-[1vh] py-[.35vh] bg-[#333] font-GroteskRegular uppercase tracking-wider rounded-md col-span-1">
+            8
+          </div>
+          <div className="px-[1vh] py-[.35vh] bg-[#333] font-GroteskRegular uppercase tracking-wider rounded-md col-span-1">
+            9
+          </div>
+          <div className="px-[1vh] py-[.35vh] bg-[#333] font-GroteskRegular uppercase tracking-wider rounded-md col-span-1">
+            6
+          </div>
+          <div className="px-[1vh] py-[.35vh] bg-[#333] font-GroteskRegular uppercase tracking-wider rounded-md col-span-1">
+            5
+          </div>
+          <div className="px-[1vh] py-[.35vh] bg-[#333] font-GroteskRegular uppercase tracking-wider rounded-md col-span-1">
+            4
+          </div>
+          <div className="px-[1vh] py-[.35vh] bg-[#333] font-GroteskRegular uppercase tracking-wider rounded-md col-span-1">
+            3
+          </div>
+          <div className="px-[1vh] py-[.35vh] bg-[#333] font-GroteskRegular uppercase tracking-wider rounded-md col-span-1">
+            2
+          </div>
+          <div className="px-[1vh] py-[.35vh] bg-[#333] font-GroteskRegular uppercase tracking-wider rounded-md col-span-1">
+            1
+          </div>
+          <div className="px-[1vh] py-[.35vh] bg-[#333] font-GroteskRegular uppercase tracking-wider rounded-md col-span-2">
+            0
+          </div>
+          <div className="px-[1vh] py-[.35vh] bg-[#333] font-GroteskRegular uppercase tracking-wider rounded-md col-span-1">
+            .
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 }

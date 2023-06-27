@@ -3,11 +3,9 @@ import Header from "../Header";
 
 const Layout = ({ children }) => {
   return (
-    <div className="p-5 fixed inset-0 md:max-w-lg md:m-auto">
-      <main>
-        <Header />
-        {children}
-      </main>
+    <div className="px-5 pt-[2vh] fixed inset-0 md:max-w-lg md:m-auto">
+      <Header />
+      <main>{children}</main>
     </div>
   );
 };

@@ -4,12 +4,10 @@
 
 html {
   background-color: var(--background);
-  height: fill-available;
   height: -webkit-fill-available;
 }
 body {
   min-height: 100vh;
-  min-height: fill-available;
   min-height: -webkit-fill-available;
 }
 
@@ -26,20 +24,23 @@ body {
   src: url("../public/fonts/tomato-grotesk-semibold.otf");
 }
 
-.slide-in {
-  transform: translateY(0%);
-  transition: transform 0.3s ease-out;
-}
+:root {
+  --reference-height: 852;
 
-// Remove default arrows on counter //
-/* Chrome, Safari, Edge, Opera */
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
+  --font-heading-small: calc(calc(20 / var(--reference-height)) * 100vh);
+  --font-heading-normal: calc(calc(24 / var(--reference-height)) * 100vh);
+  --font-heading-medium: calc(calc(32 / var(--reference-height)) * 100vh);
+  --font-heading-large: calc(calc(42 / var(--reference-height)) * 100vh);
 
-/* Firefox */
-input[type="number"] {
-  -moz-appearance: textfield;
+  --spacing-4: calc(calc(4 / var(--reference-height)) * 100vh);
+  --spacing-6: calc(calc(6 / var(--reference-height)) * 100vh);
+  --spacing-8: calc(calc(8 / var(--reference-height)) * 100vh);
+  --spacing-12: calc(calc(12 / var(--reference-height)) * 100vh);
+  --spacing-16: calc(calc(16 / var(--reference-height)) * 100vh);
+  --spacing-24: calc(calc(24 / var(--reference-height)) * 100vh);
+  --spacing-32: calc(calc(32 / var(--reference-height)) * 100vh);
+  --spacing-48: calc(calc(48 / var(--reference-height)) * 100vh);
+  --spacing-56: calc(calc(56 / var(--reference-height)) * 100vh);
+
+  --border-radius-10: calc(calc(10 / var(--reference-height)) * 100vh);
 }
