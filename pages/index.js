@@ -40,7 +40,7 @@ export default function Home() {
             DISTANCE
           </div>
           <div className="flex flex-row justify-center items-end">
-            <div className="w-full text-left font-GroteskRegular text-[5vh] leading-[4vh] tracking-wider text-white">
+            <div className="w-full text-left font-GroteskRegular text-[4.5vh] leading-[4vh] tracking-wider text-white">
               {dist}
             </div>
             <div className="font-GroteskRegular text-[3vh] tracking-wider border border-solid border-gray-600 rounded-md px-1 text-white">
@@ -58,7 +58,7 @@ export default function Home() {
             TIME
           </div>
           <div className="flex flex-row justify-center items-end">
-            <div className="w-full text-left font-GroteskRegular text-[5vh] leading-[4vh] tracking-wider text-white">
+            <div className="w-full text-left font-GroteskRegular text-[4.5vh] leading-[4vh] tracking-wider text-white">
               {time}
             </div>
           </div>
@@ -68,7 +68,7 @@ export default function Home() {
             PACE
           </div>
           <div className="flex flex-row justify-center items-end">
-            <div className="w-full text-left font-GroteskRegular text-[5vh] leading-[4vh] tracking-wider text-white">
+            <div className="w-full text-left font-GroteskRegular text-[4.5vh] leading-[4vh] tracking-wider text-white">
               {pace}
             </div>
             <div className="font-GroteskRegular text-[3vh] tracking-wider text-white">
