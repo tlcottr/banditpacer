@@ -35,12 +35,12 @@ export default function Home() {
   return (
     <div>
       <div className="grid grid-cols-1 gap-[2vh] py-[3vh]">
-        <div className="w-full border border-solid border-gray-600 focus:border-[#d07c04] focus:text-[#d07c04] p-[1vh] rounded-lg grid grid-cols-1 gap-[.5vh]">
-          <div className="w-full text-left font-GroteskRegular text-[2.5vh] tracking-wider">
+        <div className="w-full border border-solid border-gray-600 focus:border-[#d07c04] focus:text-[#d07c04] p-[1.5vh] rounded-lg grid grid-cols-1 gap-[.5vh]">
+          <div className="w-full text-left font-GroteskRegular text-[2vh] tracking-wider">
             DISTANCE
           </div>
           <div className="flex flex-row justify-center items-end">
-            <div className="w-full text-left font-GroteskRegular text-[5vh] leading-[4vh] tracking-wider text-white">
+            <div className="w-full text-left font-GroteskRegular text-[4vh] leading-[4vh] tracking-wider text-white">
               {dist}
             </div>
             <div className="font-GroteskRegular text-[3vh] tracking-wider border border-solid border-gray-600 rounded-md px-1 text-white">
@@ -54,21 +54,21 @@ export default function Home() {
           </div>
         </div>
         <div className="w-full border border-solid border-gray-600 focus:border-[#d07c04] focus:text-[#d07c04] p-[1.5vh] rounded-lg grid grid-cols-1 gap-[.5vh]">
-          <div className="w-full text-left font-GroteskRegular text-[2.5vh] tracking-wider">
+          <div className="w-full text-left font-GroteskRegular text-[2vh] tracking-wider">
             TIME
           </div>
           <div className="flex flex-row justify-center items-end">
-            <div className="w-full text-left font-GroteskRegular text-[5vh] leading-[4vh] tracking-wider text-white">
+            <div className="w-full text-left font-GroteskRegular text-[4vh] leading-[4vh] tracking-wider text-white">
               {time}
             </div>
           </div>
         </div>
         <div className="w-full border border-solid border-gray-600 focus:border-[#d07c04] focus:text-[#d07c04] p-[1.5vh] rounded-lg grid grid-cols-1 gap-[.5vh]">
-          <div className="w-full text-left font-GroteskRegular text-[2.5vh] tracking-wider">
+          <div className="w-full text-left font-GroteskRegular text-[2vh] tracking-wider">
             PACE
           </div>
           <div className="flex flex-row justify-center items-end">
-            <div className="w-full text-left font-GroteskRegular text-[5vh] leading-[4vh] tracking-wider text-white">
+            <div className="w-full text-left font-GroteskRegular text-[4vh] leading-[4vh] tracking-wider text-white">
               {pace}
             </div>
             <div className="font-GroteskRegular text-[3vh] tracking-wider text-white">
