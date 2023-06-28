@@ -34,7 +34,7 @@ export default function Home() {
 
   return (
     <div>
-      <div className="grid grid-cols-1 gap-[2vh] py-[3vh]">
+      <div className="grid grid-cols-1 gap-[1.5vh] py-[1.5vh]">
         <div className="w-full border border-solid border-gray-600 focus:border-[#d07c04] focus:text-[#d07c04] p-[1.5vh] rounded-lg grid grid-cols-1 gap-[.5vh]">
           <div className="w-full text-left font-GroteskRegular text-[2vh] tracking-wider">
             DISTANCE
