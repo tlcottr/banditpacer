@@ -5,6 +5,9 @@
 html {
   background-color: var(--background);
 }
+body {
+  min-height: 100vh;
+}
 
 @font-face {
   font-family: "grotesk-regular";
