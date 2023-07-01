@@ -1,6 +1,6 @@
 import { useState } from "react";
 import * as React from "react";
-import { animate } from "framer-motion";
+import { motion } from "framer-motion";
 import styles from "styles/styles.module.scss";
 import { InputContainer } from "@/components/InputContainer";
 import { Keyboard } from "@/components/Keyboard";
@@ -14,9 +14,9 @@ export default function Home() {
   const allSetInputValues = [setDistance, setTime, setPace];
 
   return (
-    <div className={styles.app}>
-      <div className={styles.appHeader} />
-      <div className={styles.inputStack}>
+    <motion.div className={styles.app}>
+      <motion.div className={styles.appHeader} />
+      <motion.div className={styles.inputStack}>
         <InputContainer
           label={"distance"}
           value={distance}
@@ -35,12 +35,12 @@ export default function Home() {
           currentInput={currentInput}
           setCurrentInput={setCurrentInput}
         />
-      </div>
+      </motion.div>
       <Keyboard
         currentInput={currentInput}
         allInputValues={allInputValues}
         allSetInputValues={allSetInputValues}
       />
-    </div>
+    </motion.div>
   );
 }
