@@ -1,4 +1,6 @@
 import { useState } from "react";
+import * as React from "react";
+import { animate } from "framer-motion";
 
 export default function Home() {
   const [unit, setUnit] = useState(true);
@@ -99,10 +101,10 @@ export default function Home() {
           <div className="px-[1vh] py-[.35vh] bg-[#7F7C81] font-GroteskRegular uppercase tracking-wider rounded-md col-span-1">
             C
           </div>
-          <div className="px-[1vh] py-[.35vh] bg-[#383434] font-GroteskRegular uppercase tracking-wider rounded-md col-span-1 flex items-center justify-center">
+          <div className="px-[1vh] py-[.35vh] bg-[#C97900] font-GroteskRegular uppercase tracking-wider rounded-md col-span-1 flex items-center justify-center">
             <DownArrow size={"2.75vh"} color={"#ffffff"} />
           </div>
-          <div className="px-[1vh] py-[.35vh] bg-[#383434] font-GroteskRegular uppercase tracking-wider rounded-md col-span-1 flex items-center justify-center">
+          <div className="px-[1vh] py-[.35vh] bg-[#C97900] font-GroteskRegular uppercase tracking-wider rounded-md col-span-1 flex items-center justify-center">
             <span className="rotate-180">
               <DownArrow size={"2.75vh"} color={"#ffffff"} />
             </span>
