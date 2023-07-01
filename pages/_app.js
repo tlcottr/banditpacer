@@ -12,9 +12,7 @@ export default function App({ Component, pageProps }) {
     <ThemeProvider forcedTheme="dark">
       <UnitToggleProvider>
         <ModeToggleProvider>
-          <Layout>
-            <Component {...pageProps} />
-          </Layout>
+          <Component {...pageProps} />
         </ModeToggleProvider>
       </UnitToggleProvider>
     </ThemeProvider>
