@@ -1,4 +1,6 @@
 import { useState } from "react";
+import * as React from "react";
+import { animate } from "framer-motion";
 
 export default function Home() {
   const [unit, setUnit] = useState(true);
@@ -31,6 +33,30 @@ export default function Home() {
       </svg>
     );
   };
+
+  const numbers = [7, 8, 9, 6, 5, 4, 3, 2, 1];
+  const decimal = ".";
+
+  const numberElements = numbers.map((number, index) => (
+    <div
+      key={index}
+      className="px-[1vh] py-[.35vh] bg-[#333] font-GroteskRegular uppercase tracking-wider rounded-md col-span-1"
+    >
+      {number}
+    </div>
+  ));
+
+  const decimalElement = (
+    <div className="px-[1vh] py-[.35vh] bg-[#333] font-GroteskRegular uppercase tracking-wider rounded-md col-span-1">
+      {decimal}
+    </div>
+  );
+
+  const zeroElement = (
+    <div className="px-[1vh] py-[.35vh] bg-[#333] font-GroteskRegular uppercase tracking-wider rounded-md col-span-2">
+      0
+    </div>
+  );
 
   return (
     <div>
@@ -99,47 +125,17 @@ export default function Home() {
           <div className="px-[1vh] py-[.35vh] bg-[#7F7C81] font-GroteskRegular uppercase tracking-wider rounded-md col-span-1">
             C
           </div>
-          <div className="px-[1vh] py-[.35vh] bg-[#383434] font-GroteskRegular uppercase tracking-wider rounded-md col-span-1 flex items-center justify-center">
+          <div className="px-[1vh] py-[.35vh] bg-[#C97900] font-GroteskRegular uppercase tracking-wider rounded-md col-span-1 flex items-center justify-center">
             <DownArrow size={"2.75vh"} color={"#ffffff"} />
           </div>
-          <div className="px-[1vh] py-[.35vh] bg-[#383434] font-GroteskRegular uppercase tracking-wider rounded-md col-span-1 flex items-center justify-center">
+          <div className="px-[1vh] py-[.35vh] bg-[#C97900] font-GroteskRegular uppercase tracking-wider rounded-md col-span-1 flex items-center justify-center">
             <span className="rotate-180">
               <DownArrow size={"2.75vh"} color={"#ffffff"} />
             </span>
           </div>
-          <div className="px-[1vh] py-[.35vh] bg-[#333] font-GroteskRegular uppercase tracking-wider rounded-md col-span-1">
-            7
-          </div>
-          <div className="px-[1vh] py-[.35vh] bg-[#333] font-GroteskRegular uppercase tracking-wider rounded-md col-span-1">
-            8
-          </div>
-          <div className="px-[1vh] py-[.35vh] bg-[#333] font-GroteskRegular uppercase tracking-wider rounded-md col-span-1">
-            9
-          </div>
-          <div className="px-[1vh] py-[.35vh] bg-[#333] font-GroteskRegular uppercase tracking-wider rounded-md col-span-1">
-            6
-          </div>
-          <div className="px-[1vh] py-[.35vh] bg-[#333] font-GroteskRegular uppercase tracking-wider rounded-md col-span-1">
-            5
-          </div>
-          <div className="px-[1vh] py-[.35vh] bg-[#333] font-GroteskRegular uppercase tracking-wider rounded-md col-span-1">
-            4
-          </div>
-          <div className="px-[1vh] py-[.35vh] bg-[#333] font-GroteskRegular uppercase tracking-wider rounded-md col-span-1">
-            3
-          </div>
-          <div className="px-[1vh] py-[.35vh] bg-[#333] font-GroteskRegular uppercase tracking-wider rounded-md col-span-1">
-            2
-          </div>
-          <div className="px-[1vh] py-[.35vh] bg-[#333] font-GroteskRegular uppercase tracking-wider rounded-md col-span-1">
-            1
-          </div>
-          <div className="px-[1vh] py-[.35vh] bg-[#333] font-GroteskRegular uppercase tracking-wider rounded-md col-span-2">
-            0
-          </div>
-          <div className="px-[1vh] py-[.35vh] bg-[#333] font-GroteskRegular uppercase tracking-wider rounded-md col-span-1">
-            .
-          </div>
+          {numberElements}
+          {zeroElement}
+          {decimalElement}
         </div>
       </div>
     </div>
